@@ -220,7 +220,7 @@ To use the CLI, you can type a command, which is supposed to be typed in a certa
 * The `help` is a simple command without any parameters, so you can just type **`help`** into the command box and press Enter, SoConnect will open the help window.
 
 
-* The command format for `add` is `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…`. As mentioned [here](#63-command-format), since `t/TAG` is wrapped with square brackets and has the `…`​ at the back, you can choose whether to provide this parameter and even choose to provide this multiple times. The parameters can be provided in any order as long as they are after the command.<br><br>
+* The command format for `add` is `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…`. As mentioned [here](#63-command-format), since `t/TAG` is wrapped with square brackets and has the `…`​ at the back, you can choose whether to provide this parameter and even choose to provide this multiple times. The parameters can be provided in any order as long as they are after the command.<br>
 Try typing this command:<br>`add n/Betsy Crowe p/1234567 e/betsycrowe@example.com a/Newgate Prison t/friend` <br>
 
 Do not worry about typing commands wrongly as SoConnect will guide you if and when you do so.
@@ -277,8 +277,8 @@ A contact of a person consists of:
 <div markdown="block" class="alert alert-primary">
 
 **:memo: Note**<br>
-* You might forget that you have already [added a contact](#721-adding-a-contact-add), but no need to worry about having duplicate contacts! We help you to detect duplicate contacts by checking existing contacts for the exact same name (case-sensitive) whenever you add a new contact or [edit an existing contact](#722-editing-a-contact--edit).
-* What if you are trying to add the contacts of 2 different people with the same name? You can make use of the case-sensitivity of names and numbers to help you differentiate between the contacts. (e.g. `Alex Yeoh`,`Alex yeoh`,`Alex Yeoh 1`,`Alex Yeoh 2` can all be added as 4 different valid contacts)
+* You might forget that you have already [added a contact](#721-adding-a-contact-add), but no need to worry about having duplicate contacts! We help you to detect duplicate contacts by checking existing contacts for the exact same name (case-sensitive) whenever you add a new contact or [edit an existing contact](#722-editing-a-contact--edit).<br><br>
+* What if you are trying to add the contacts of 2 different people with the same name? You can make use of the case-sensitivity of names and numbers to help you differentiate between the contacts. (e.g. `Alex Yeoh`,`Alex yeoh`,`Alex Yeoh 1`,`Alex Yeoh 2` can all be added as 4 different valid contacts)<br><br>
 * Names currently only accept [alphanumeric](#alphanum) characters and spaces to help you avoid mistakes when typing them. If a name you are trying to add has special characters like `,` or `/`, it is alright to leave the special characters out for now as SoConnect does not require you to store the exact legal names of your contacts.
 
 </div>
@@ -444,7 +444,7 @@ How **[tags](#tag) (t/TAG)** are sorted:
 
 <div markdown="block" class="alert alert-primary">
 
-**:memo: Note**<br><br>
+**:memo: Note**<br>
 * When sorting by tags, unlike other parameters, you have to specify a value (an existing `TAG`) to sort by.
 * For other parameters (i.e. `n/ e/ a/ p/`), values provided are ignored. (e.g. sorting by `n/Alfred` is a valid command, the list will be sorted by name alphabetically, and the name given `Alfred` is ignored)
 
@@ -513,8 +513,8 @@ A todo consists of:
 <div markdown="block" class="alert alert-primary">
 
 **:memo: Note**<br>
-* You might forget that you have already [added a todo](#731-adding-a-todo-todo-add), but no need to worry about having duplicate todos! We help you to detect duplicate todos by checking existing todos whenever you add a new todo or [edit an existing todo](#732-editing-a-todo--todo-edit). Duplicate todos are todos with the exact same information for every parameter.
-* What if you want to add 2 todos with the same description? You are still able to do so, as long as the todos have different tags, dates, or priorities.
+* You might forget that you have already [added a todo](#731-adding-a-todo-todo-add), but no need to worry about having duplicate todos! We help you to detect duplicate todos by checking existing todos whenever you add a new todo or [edit an existing todo](#732-editing-a-todo--todo-edit). Duplicate todos are todos with the exact same information for every parameter.<br><br>
+* What if you want to add 2 todos with the same description? You are still able to do so, as long as the todos have different tags, dates, or priorities.<br><br>
 * Priority of a todo can strictly only be `low`, `medium`, or `high`. **Coming soon in v1.5**, we will add smarter priorities (to accept other variations such as `Low`, `Medium`, `High`, `L`, `M`, `H`).
 
 </div>
@@ -744,7 +744,7 @@ You can add a `TAG` from the tag list to a contact using the `tag add` command a
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Info**<br><br>
+**:information_source: Info**<br>
 * The tag has to be created first before you can add it into a contact.
   Refer to [Creating a Tag](#741-creating-a-tag-tag-create) on how to create a tag.
 * **Coming soon in v1.5**, we will upgrade `tag add` to add tags to todos. Consider using [Adding a todo](#731-adding-a-todo-todo-add) or [Editing a todo](#732-editing-a-todo--todo-edit) to add tags to todos.
@@ -890,7 +890,8 @@ customise show p/ t/
 <div markdown="span" class="alert alert-warning">
 
 **:warning: Warning**<br><br>
-If your changes to a data file renders it invalid, SoConnect will discard the data file and start with an empty data file at the next run.<br>
+If your changes to a data file renders it invalid, SoConnect will discard the data file and start with an empty data file at the next run.
+
 * Familiarise yourself with the format of the data files before attempting any changes.<br>
 * Backup your data files in a separate folder before attempting any changes.
 
@@ -936,8 +937,8 @@ If your changes to a data file renders it invalid, SoConnect will discard the da
 | [**Add todo**](#731-adding-a-todo-todo-add)                              | `todo add d/DESCRIPTION date/DATE pr/PRIORITY [t/TAG]…​` <br> e.g. `todo add d/Revise date/07-11-2022 pr/high`                                                                                                                               |
 | [**Edit todo**](#732-editing-a-todo--todo-edit)                          | `todo edit INDEX [d/DESCRIPTION] [date/DATE] [pr/PRIORITY] [t/TAG]…​` <br> e.g. `todo edit 1 t/CS2101`                                                                                                                                       |
 | [**Delete todo**](#733-deleting-a-todo--todo-delete)                     | `todo delete INDEX` <br> e.g. `todo delete 3`                                                                                                                                                                                                |
-| [**Clear todo**](#734-clearing-all-todos--todo-clear)                    | `todo clear`                                                                                                                                                                                                                                 |
-| [**Show todo**](#735-filtering-todos-shown--todo-show)                   | `todo show`<br> `todo show today` <br> `todo show date/DATE` <br> `todo show date/DATE to DATE` <br> `todo show t/TAG` <br> `todo show pr/PRIORITY` <br> e.g. `todo show`, `todo show pr/high`, `todo show t/CS2100`                         |
+| [**Clear all todos**](#734-clearing-all-todos--todo-clear)               | `todo clear`                                                                                                                                                                                                                                 |
+| [**Show todos**](#735-filtering-todos-shown--todo-show)                  | `todo show`<br> `todo show today` <br> `todo show date/DATE` <br> `todo show date/DATE to DATE` <br> `todo show t/TAG` <br> `todo show pr/PRIORITY` <br> e.g. `todo show`, `todo show pr/high`, `todo show t/CS2100`                         |
 | [**Create tag**](#741-creating-a-tag-tag-create)                         | `tag create t/TAG` <br> e.g. `tag create t/friend`                                                                                                                                                                                           |
 | [**Delete tag**](#742-deleting-a-tag-tag-delete)                         | `tag delete t/TAG` <br> e.g. `tag delete t/friend`                                                                                                                                                                                           |
 | [**Edit tag**](#743-editing-a-tag-tag-edit)                              | `tag edit t/TAG1 t/TAG2`  <br> e.g. `tag edit t/friend t/bestFriend`                                                                                                                                                                         |
