@@ -72,7 +72,6 @@ In order to help you pay attention, we have used some icons along with highlight
 | **:bulb: Tip**                | You might find this useful.                   |
 | **:information_source: Info** | You can get additional information from this. |
 | **:warning: Warning**         | You should be cautious about this.            |
-| **:rotating_light: Danger**   | You should pay **extra** attention to this.   |
 
 ### 4.3. Formatting and Notation
 
@@ -90,7 +89,7 @@ In case you are wondering why certain words are styled differently, here are the
 
 1. Ensure you have [Java 11](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html) installed on your computer.
 2. Download the latest `SoConnect.jar` file from our [release page](https://github.com/AY2223S1-CS2103T-W15-1/tp/releases).
-![SoConnect](images/SoConnectDownload.png)
+<br><br>![SoConnect](images/SoConnectDownload.png)<br><br>
 3. Copy the file to an empty folder you want to use as the _home folder_ for SoConnect. You can find more on how to do that [here](https://www.digitaltrends.com/computing/how-to-create-folder-on-desktop/#:~:text=Create%20a%20folder%20on%20a%20Windows%20desktop,-Creating%20a%20folder&text=Step%201%3A%20Right%2Dclick%20a,a%20name%20of%20your%20own.).
 4. Double-click the `SoConnect.jar` to start SoConnect. You can head over to the [Quickstart](#6-quickstart) section for a guided tutorial on how to use the app.
 
