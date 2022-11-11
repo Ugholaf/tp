@@ -52,11 +52,11 @@ SoConnect helps you keep track of your [todo](#todo) list, so that you can focus
 
 ### 4.1. Navigate Around
 
-If you are a first time user, we understand that you might be confused on how to even start up the application in the first place. Therefore, you can go to the [Installation](#5-installation) section to download SoConnect, if you have not done so.
+If you are a **first time user**, we understand that you might be confused on how to even start up the application in the first place. Therefore, you can go to the [Installation](#5-installation) section to download SoConnect, if you have not done so.
 
 Once SoConnect is installed, you can navigate to the [Quickstart](#6-quickstart) section, where we will cover the basics of using SoConnect.
 
-If you are a returning user, you can head over to the [Command Summary](#9-command-summary) section for a quick overview of all commands in SoConnect. Alternatively, you can also read the detailed explanation of each command in the [Commands](#7-commands) section.
+If you are a **returning user**, you can head over to the [Command Summary](#9-command-summary) section for a quick overview of all commands in SoConnect. Alternatively, you can also read the detailed explanation of each command in the [Commands](#7-commands) section.
 
 Have a question regarding the app? You might find the answer you are looking for in the [FAQ](#8-faq) section.
 
@@ -76,11 +76,11 @@ In order to help you pay attention, we have used some icons along with highlight
 
 ### 4.3. Formatting and Notation
 
-In case you are wondering why certain texts are styled differently, here are the meaning behind them:
+In case you are wondering why certain words are styled differently, here are the meaning behind them:
 
-1. Text that are numbered and in purple font are headers which mark the beginning of a section or subsection of the guide.
+1. Words that are numbered and in purple font are headers which mark the beginning of a section or subsection of the guide.
 2. **Words in bold** are phrases that we want you to pay attention to.
-3. [Links in blue](#) will navigate you to place where you can find more explanation about the words.
+3. [Links in blue](#hyperlink) will navigate you to where you can find more explanation about the words.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -90,8 +90,9 @@ In case you are wondering why certain texts are styled differently, here are the
 
 1. Ensure you have [Java 11](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html) installed on your computer.
 2. Download the latest `SoConnect.jar` file from our [release page](https://github.com/AY2223S1-CS2103T-W15-1/tp/releases).
+![SoConnect](images/SoConnectDownload.png)
 3. Copy the file to an empty folder you want to use as the _home folder_ for SoConnect. You can find more on how to do that [here](https://www.digitaltrends.com/computing/how-to-create-folder-on-desktop/#:~:text=Create%20a%20folder%20on%20a%20Windows%20desktop,-Creating%20a%20folder&text=Step%201%3A%20Right%2Dclick%20a,a%20name%20of%20your%20own.).
-4. Double-click the file to start SoConnect. You can head over to the [Quickstart](#6-quickstart) section for a guided tutorial on how to use the app.
+4. Double-click the `SoConnect.jar` to start SoConnect. You can head over to the [Quickstart](#6-quickstart) section for a guided tutorial on how to use the app.
 
 <div markdown="block" class="alert alert-primary">
 **:memo: Note** <br/> <br/>
@@ -102,9 +103,9 @@ Empty folder is needed because all additional storage data and files will be sav
 
 SoConnect currently can run smoothly on these operating systems:
 
-1. Ubuntu
-2. MacOS
-3. Windows
+1. [Ubuntu](https://ubuntu.com/)
+2. [MacOS](https://www.apple.com/sg/mac/)
+3. [Windows](https://www.microsoft.com/en-us/windows)
 
 You can download and use [`SoConnect.jar`](https://github.com/AY2223S1-CS2103T-W15-1/tp/releases) on any of the above operating systems.
 
@@ -112,23 +113,27 @@ You can download and use [`SoConnect.jar`](https://github.com/AY2223S1-CS2103T-W
 
 ## 6. Quickstart
 
-Upon completing this section, you should be able to explore SoConnect on your own. We will start by explaining [different parts of the GUI](#61-layout), [key definitions](#62-key-definitions), [command format](#63-command-format), as well as [trying out simple commands](#64-how-to-use-the-cli).
+Upon completing this section, you should be able to explore SoConnect on your own. We will start by explaining [different parts of the GUI](#61-layout), [key definitions](#62-key-definitions), [command format](#63-command-format), as well as [how to use the CLI](#64-how-to-use-the-cli).
 
 ### 6.1. Layout
 
 ![SoConnect GUI](images/SoConnectGUI.png)
 
-When you launch SoConnect, SoConnect will appear as a of Graphical User Interface [(GUI)](#gui). Let's look at the layout of the different components in SoConnect.
+When you launch SoConnect, SoConnect will appear as a Graphical User Interface [(GUI)](#gui). Let's look at the layout of the different components in SoConnect.
 
 **SoConnect's GUI Components:**
 
 ![SoConnect GUI With Label](images/SoConnectGUIWithLabel.png)
 
+<br>
+
 #### 6.1.1. Command Box
 
 ![Command Box](images/CommandBox.png)
 
-* Command Box allows you to enter commands for actions that you wish to perform. Try typing `help` in the command box and see what happens!
+Command Box allows you to enter commands for actions that you wish to perform. Try typing `help` in the command box and see what happens!
+
+<br>
 
 #### 6.1.2. Result Box
 
@@ -138,30 +143,39 @@ When you launch SoConnect, SoConnect will appear as a of Graphical User Interfac
 **Error message**:
 ![Result Box Error](images/ResultBoxError.png)
 
-* The Result Box provides a feedback message after a command is entered.
-* The feedback message will either be a success message to indicate that the command has successfully executed or an error message to inform you that there is an error with the command that you just entered.
+The Result Box provides a feedback message after a command is entered.
+
+The feedback message will either be a success message to indicate that the command has been successfully executed or an error message to inform you that there is an error with the command that you have just entered.
+
+<br>
 
 #### 6.1.3. Contact List
 
 ![Contact List With Label](images/ContactListWithLabel.png)
 
-* Contact list displays the contacts with their information in the contact card.
+Contact list displays the contacts with their information in the contact card.
+
+<br>
 
 #### 6.1.4. Todo List
 
 ![Todo List With Label](images/TodoListWithLabel.png)
 
-* Todo list displays the todos with their information in the todo card.
-* The todo header changes based on the todos that are shown in the todo list.
+Todo list displays the todos with their information in the todo card.
 
+The todo header changes based on the todos that are shown in the todo list.
 
 ### 6.2. Key Definitions
+
+![KeyDefinition](images/KeyDefinition.png)
 
 #### 6.2.1. Command
 
 Command is the action you want SoConnect to perform. Most commands require [parameters](#622-parameter) after the command so that SoConnect has the required information to perform the action.
 
 e.g. `help`
+
+<br>
 
 #### 6.2.2. Parameter
 
@@ -171,7 +185,8 @@ e.g. `n/NAME`
 
 ### 6.3. Command Format
 
-In the command box, you need to type the [command](#621-command) along with the required [parameters](#622-parameter). You can leave the parameter field empty if it is optional, which is indicated by wrapped square brackets in the command format, e.g. `search [e/EMAIL]` <br>
+In the command box, you need to type the [command](#621-command) along with the required [parameters](#622-parameter). You can leave the parameter field empty if it is optional, which is indicated by wrapped square brackets in the command format, e.g. `search [e/EMAIL]`.
+
 The parameters required for each command can be found in [Command Summary](#9-command-summary) and [Commands](#7-commands).
 
 <div markdown="block" class="alert alert-primary">
@@ -182,7 +197,7 @@ The parameters required for each command can be found in [Command Summary](#9-co
   e.g. if the format is `add n/NAME`, you can type `add n/John Doe` to use the command.
 
 * Items with `…`​ after them can be used multiple times, including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family`, etc.
+  e.g. `[t/TAG]…​` can be left blank (i.e. 0 times), `t/friend`, `t/friend t/family`, etc.
 
 * Parameters can be in any order unless explicitly stated otherwise.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -199,15 +214,15 @@ The parameters required for each command can be found in [Command Summary](#9-co
 
 ### 6.4. How to Use the CLI
 
-If you already know about [Command Line Interface (CLI)](#cli), you can skip this part and read the [Commands](#7-commands).
+If you already know about [Command Line Interface (CLI)](#cli), you can skip this part and read the [Commands](#7-commands) section.
 
-To use the CLI, you can type a command, which is supposed to be typed in a certain [format](#63-command-format), in the command box and press Enter. SoConnect will perform a specific action. You could try using the CLI using some examples provided below. <br>
+To use the CLI, you can type a command, which is supposed to be typed in a certain [format](#63-command-format), in the command box and press Enter. SoConnect will perform a specific action. You could try using the CLI with some examples provided below. <br>
 
-The command format for `help` is just `help`. You can just type **`help`** into the CLI and press Enter, SoConnect will open the help window.
+* The `help` is a simple command without any parameters, so you can just type **`help`** into the command box and press Enter, SoConnect will open the help window.
 
-The command format for `add` is `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…`. As mentioned [here](#63-command-format), since `t/TAG` is wrapped with square brackets and has the `…`​ at the back, you can choose whether to provide this parameter and even choose to provide this multiple times. The parameters can be provided in any order as long as they are after the command.<br>
-Valid usage e.g. `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567` <br>
-Invalid usage e.g. `add n/Joe Tan` (Other parameters such as `p/PHONE_NUMBER e/EMAIL a/ADDRESS` must be provided as they are not wrapped in square brackets)
+
+* The command format for `add` is `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…`. As mentioned [here](#63-command-format), since `t/TAG` is wrapped with square brackets and has the `…`​ at the back, you can choose whether to provide this parameter and even choose to provide this multiple times. The parameters can be provided in any order as long as they are after the command.<br><br>
+Try typing this command:<br>`add n/Betsy Crowe p/1234567 e/betsycrowe@example.com a/Newgate Prison t/friend` <br>
 
 Do not worry about typing commands wrongly as SoConnect will guide you if and when you do so.
 
@@ -271,10 +286,6 @@ If your changes to a data file renders it invalid, SoConnect will discard the da
 * Backup your data files in a separate folder before attempting any changes.
 
 </div>
-
-<br>
-
-#### 7.1.5. Archiving data files `[coming in v2.0]`
 
 <br>
 
@@ -960,13 +971,13 @@ A feature that shows a list of completed words or strings without the user needi
 
 <br>
 
-**<a id="autocomplete-entries">Autocomplete Entry</a>**
+**<a id="autocomplete-entries"></a>Autocomplete Entry**
 
 A sentence that has been autocompleted with [autocomplete](#autocomplete).
 
 <br>
 
-**<a id="cli">CLI</a>**
+**<a id="cli"></a>CLI**
 
 A text-based user interface used to run programs.
 
@@ -975,6 +986,12 @@ A text-based user interface used to run programs.
 **<a id="gui"></a>GUI**
 
 A graphical user interface (GUI) is a form of user interface that allows users to interact with programs through graphical icons and audio indicator.
+
+<br>
+
+**<a id="hyperlink"></a>Hyperlink**
+
+A link or reference to where you can find a more detailed explanation about a term.
 
 <br>
 
