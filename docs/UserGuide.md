@@ -264,40 +264,15 @@ When you are done with your [contact management](#72-contact-management-commands
 
 **Format:** `exit`
 
-<br>
-
-#### 7.1.3. Saving the data
-
-You won't ever have to worry about losing your contacts or [todos](#todo). SoConnect automatically saves your data in the hard disk after any command that changes the data.
-
-<br>
-
-#### 7.1.4. Editing the data file
-
-If you are an advanced user, SoConnect allows you to freely edit its data files and directly update your data.
-* Your contact list and [tag](#tag) list are saved in a [JSON](#json) file `[JAR file location]/data/soconnect.json`.<br>
-* Your todo list is saved in a separate JSON file `[JAR file location]/data/todolist.json`.<br>
-
-<div markdown="span" class="alert alert-warning">
-
-**:warning: Warning**<br>
-If your changes to a data file renders it invalid, SoConnect will discard the data file and start with an empty data file at the next run.<br>
-* Familiarise yourself with the format of the data files before attempting any changes.<br>
-* Backup your data files in a separate folder before attempting any changes.
-
-</div>
-
-<br>
-
 ### 7.2. Contact Management Commands
 
-Welcome to the Contact Management Commands section! In this section, you can learn how to manage your contacts using SoConnect. Contacts help you to keep track of a person's information by storing them all in 1 place. This way, you won't have to worry about forgetting someone's information and can find all of their information conveniently in 1 place.
+Welcome to the Contact Management Commands section! In this section, you can learn how to manage your contacts using SoConnect. Contact Management helps you to keep track of a person's information by storing them all in 1 place. This way, you won't have to worry about forgetting someone's information and can find all of their information conveniently in 1 place.
 
-A contact of a person consists of
-1. their name
-2. their phone number
-3. their email address
-4. their address
+A contact of a person consists of:
+1. a name
+2. a phone number
+3. an email address
+4. an address
 5. (optional) [tags](#tag) to help you categorise your contacts
 
 <div markdown="block" class="alert alert-primary">
@@ -323,7 +298,7 @@ You can add a contact using the `add` command as shown below. While the `NAME`, 
 
 [Tags](#tag) have to be created first before you can add them to a contact.
 
-* Refer to [`Creating a Tag`](#741-creating-a-tag-tag-create) on how to create a tag.
+Refer to [Creating a Tag](#741-creating-a-tag-tag-create) on how to create a tag.
 
 </div>
 
@@ -342,7 +317,7 @@ add n/John Doe t/friends p/98765432 e/johnd@example.com a/John street, block 123
 
 You might have included the wrong information when [adding a contact](#721-adding-a-contact-add), or you might need to update the information of a contact. Regardless, you can accomplish both easily using the `edit` command as shown below. All you need is the `INDEX` of the contact you want to modify along with the parameters you want to update.
 
-**Format:** `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS]`
+**Format:** `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]`
 
 * At least 1 of the 4 optional parameters must be provided.
 * Existing information will be updated with the parameters provided. Information of the parameters not provided will remain unchanged.
@@ -382,61 +357,11 @@ Whenever you need to view a list of all the contacts you have in your SoConnect,
 
 #### 7.2.4. Searching for a contact: `search`
 
-You can easily find the contacts that you are interested in using the `search` command as shown below. The `search` command has two formats - `and` condition and `or` condition search, it also comes with [autocomplete](#autocomplete) feature to help you to search more efficiently without typing the command in full.
-
-**1. `and` Condition Search:**
-
-If you are looking for a very specific search result, you can use `and` condition search to search for contacts with information matching **all** of your given parameters.
-
-**Format:** `search [and] [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…`
-
-* The search using `n/NAME` is case-insensitive. (e.g. `hans` will match `Hans`).
-* At least 1 of the optional parameters must be provided.
-
-<div markdown="block" class="alert alert-success">
-
-:bulb: **Tip:**<br/>
-The word `and` is optional, so you can perform `and` condition search without including the word `and`, i.e. `search n/Alex p/12345678` gives the same result as `search and n/Alex p/12345678`.
-</div>
-
-**Example Input in Command Box:**
-```
-search and n/Bernice t/cs2100 t/friends
-```
-
-**Example Result:**
-
-![And Condition Search](images/AndConditionSearch.png)
-
-**2. `or` Condition Search:**
-
-If you wish to broaden your search result, you can use `or` condition search to search for contacts with information matching **at least one** of your given parameters.
-
-Format: `search or [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]…`
-
-* The search using `n/NAME` is case-insensitive. (e.g. `hans` will match `Hans`).
-* At least 1 of the optional parameters must be provided.
-
-**Example Input in Command Box**
-```
-search or n/Bernice t/cs2100 t/friends
-```
-
-**Example Result**
-
-![Or Condition Search](images/OrConditionSearch.png)
-
-Notice there are more contacts listed as compared to `search and n/Bernice t/cs2100 t/friends`.
-
-<div markdown="block" class="alert alert-primary">
-**:memo: Note**<br/>
-For both `and` and `or` condition search, you still get a list of relevant contacts related to your search query if there are no search results available. This is useful as you might still get the contacts that you are searching for when you entered some characters wrongly.<br/><br/>A contact is considered relevant if there are high matches of characters between the contact information and search parameters. For example, the information `David Li` and `Charlotte` are relevant to `search n/al` because these names contain characters `a` and `l` in it.
-</div>
-
+You can easily find the contacts that you are interested in using the `search` command as shown below. The `search` command has two formats, `and` condition and `or` condition search. It also comes with [autocomplete](#autocomplete) feature to help you search more efficiently without typing the command in full.
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Info:**<br>
+**:information_source: Info**<br><br>
 Autocomplete:
 
 ![Autocomplete With Label](images/AutocompleteWithLabel.png)
@@ -451,23 +376,76 @@ Autocomplete helps you to get your search done faster as you do not have to type
 
 <br>
 
+**1. `and` Condition Search:**
+
+If you are looking for a very specific search result, you can use `and` condition search to search for contacts with information matching **all** of your given parameters.
+
+**Format:** `search [and] [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…`
+
+* The search using `n/NAME` is case-insensitive, e.g. `hans` will match `Hans`.
+* At least 1 of the optional parameters must be provided.
+
+<div markdown="block" class="alert alert-success">
+
+:bulb: **Tip**<br><br>
+The word `and` is optional, so you can perform `and` condition search without including the word `and`, i.e. `search n/Alex p/12345678` gives the same result as `search and n/Alex p/12345678`.
+</div>
+
+**Example Input in Command Box:**
+```
+search and n/Bernice t/cs2100 t/friends
+```
+
+**Example Result:**
+
+![And Condition Search](images/AndConditionSearch.png)
+
+<br>
+
+**2. `or` Condition Search:**
+
+If you wish to broaden your search result, you can use `or` condition search to search for contacts with information matching **at least one** of your given parameters.
+
+**Format:** `search or [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…`
+
+* The search using `n/NAME` is case-insensitive, e.g. `hans` will match `Hans`.
+* At least 1 of the optional parameters must be provided.
+
+**Example Input in Command Box:**
+```
+search or n/Bernice t/cs2100 t/friends
+```
+
+**Example Result:**
+
+![Or Condition Search](images/OrConditionSearch.png)
+
+Notice there are more contacts listed as compared to `search and n/Bernice t/cs2100 t/friends`.
+
+<div markdown="block" class="alert alert-primary">
+**:memo: Note**<br><br>
+For both `and` and `or` condition search, you will still get a list of relevant contacts related to your search query if there is no search result available. This is useful as you might still get the contacts that you are searching for when you entered some characters wrongly.<br/><br/>A contact is considered relevant if there are high matches of characters between the contact information and search parameters. For example, the information `David Li` and `Charlotte` are relevant to `search n/al` because these names contain characters `a` and `l` in it.
+</div>
+
+<br>
+
 #### 7.2.5. Sorting contacts : `sort`
 
-Organising your contacts can make tracking and managing them easier, especially when you have lots of contacts. You can organise your contacts in the order you prefer using the `sort` command as shown below. Given below are the orders that you can choose each parameter to be sorted by.
+Organising your contacts can make tracking and managing them easier, especially when you have lots of contacts. You can organise your contacts in the order you prefer using the `sort` command. Given below are the orders that you can choose each parameter to be sorted by.
 
-How *names (n/)*, *emails (e/)*, *addresses (a/ )* are sorted:
+How **names (n/)**, **emails (e/)**, **addresses (a/)** are sorted:
 * In alphabetical order. (e.g. `Al` comes before `Alfred` which comes before `Brad`)
 * Case-insensitive. (e.g. `Al`, `al`, `AL`, and `aL` are identical when it comes to sorting)
 
-How *phone numbers (p/)* are sorted:
+How **phone numbers (p/)** are sorted:
 * In increasing numerical order. (e.g. `123` comes before `125` which comes before `1234`)
 
-How *[tags](#tag) (t/TAG)* are sorted:
-* Contacts with the *TAG* you specified will come before contacts without the *TAG*.
+How **[tags](#tag) (t/TAG)** are sorted:
+* Contacts with the `TAG` you specified will come before contacts without the `TAG`.
 
 <div markdown="block" class="alert alert-primary">
 
-**:memo: Note**<br>
+**:memo: Note**<br><br>
 * When sorting by tags, unlike other parameters, you have to specify a value (an existing `TAG`) to sort by.
 * For other parameters (i.e. `n/ e/ a/ p/`), values provided are ignored. (e.g. sorting by `n/Alfred` is a valid command, the list will be sorted by name alphabetically, and the name given `Alfred` is ignored)
 
@@ -479,8 +457,7 @@ How *[tags](#tag) (t/TAG)* are sorted:
 
 <div markdown="block" class="alert alert-success">
 
-**:bulb: Tip**<br>
-
+**:bulb: Tip**<br><br>
 You can use multiple parameters to sort if you want to organise your contacts even more! Your list will be sorted by the first parameter you provide as per usual. Here's how the other parameters will be used:
 1. Contacts with identical values for the first parameter are identified. (e.g. same phone number, same email, same address, or contains the same tag)
 2. Each group of contacts with the same identical values would appear together on your list. This is where your second parameter will be used.
@@ -526,12 +503,12 @@ Want a fresh start? You can reset and get a clean, empty list of contacts using 
 
 ### 7.3. Todo Management Commands
 
-Welcome to the Todo Management Commands section! In this section, you can learn how to manage your todos using SoConnect. A [todo](#todo) represents a task that needs completing. With the todo list in SoConnect, you won't have to worry about forgetting your school tasks and can find all your tasks conveniently in 1 place.
+Welcome to the Todo Management Commands section! In this section, you can learn how to manage your todos using SoConnect. A [todo](#todo) represents a task that needs to be completed. With the todo list in SoConnect, you won't have to worry about forgetting your school tasks and can find all your tasks conveniently in 1 place.
 
-A todo consists of
+A todo consists of:
 1. a description
 2. a date of the deadline of the task
-3. the priority of the task
+3. a priority of the task
 4. (optional) [tags](#tag) to help you categorise your todos
 
 <div markdown="block" class="alert alert-primary">
@@ -539,7 +516,7 @@ A todo consists of
 **:memo: Note**<br>
 * You might forget that you have already [added a todo](#731-adding-a-todo-todo-add), but no need to worry about having duplicate todos! We help you to detect duplicate todos by checking existing todos whenever you add a new todo or [edit an existing todo](#732-editing-a-todo--todo-edit). Duplicate todos are todos with the exact same information for every parameter.
 * What if you want to add 2 todos with the same description? You are still able to do so, as long as the todos have different tags, dates, or priorities.
-* Priority of a todo can strictly only be `low`, `medium`, or `high`. `Coming soon in v1.5`, we will add smarter priorities (to accept other variations such as `Low`, `Medium`, `High`, `L`, `M`, `H`).
+* Priority of a todo can strictly only be `low`, `medium`, or `high`. **Coming soon in v1.5**, we will add smarter priorities (to accept other variations such as `Low`, `Medium`, `High`, `L`, `M`, `H`).
 
 </div>
 
@@ -551,16 +528,15 @@ You can add a todo using the `todo add` command as shown below. While the `DESCR
 
 **Format:** `todo add d/DESCRIPTION date/DATE pr/PRIORITY [t/TAG]…​`
 
-* `DATE` should be of the format dd-MM-yyyy (e.g. 24-03-2022).
+* `DATE` should be of the format DD-MM-YYYY, e.g. 24-03-2022.
 * The todo list will always be sorted by date from earliest to latest (for todos with the same date, they will be sorted in decreasing priority order).
 
 <div markdown="block" class="alert alert-primary">
 
-**:memo: Note**
-
+**:memo: Note**<br><br>
 [Tags](#tag) have to be created first before you can add them to a todo.
 
-* Refer to [`Creating a Tag`](#741-creating-a-tag-tag-create) on how to create a tag.
+Refer to [Creating a Tag](#741-creating-a-tag-tag-create) on how to create a tag.
 
 </div>
 
@@ -586,19 +562,20 @@ You can update the information of a todo easily using the `todo edit` command as
 
 
 <div markdown="block" class="alert alert-primary">
-**:memo: Note:**<br/>
+**:memo: Note**<br><br>
 [Tags](#tag) have to be created first before you can add them to a todo.
 
-* Refer to [`Creating a Tag`](#741-creating-a-tag-tag-create) on how to create a tag.
+Refer to [Creating a Tag](#741-creating-a-tag-tag-create) on how to create a tag.
 </div>
 
 <div markdown="block" class="alert alert-info">
-**:information_source: info:** <br/>
+**:information_source: Info** <br><br>
+You can use `todo edit` command to add or remove tags to a todo.
 
-* You can use `todo edit` command to add or remove tags to a todo.
-  * To add a tag, you can include all the existing tags in the todo as parameter together with the new tags that you wish to add.
-  * To remove a tag, you can include all the existing tags in the todo excluding the tags that you wish to remove.
-* `Coming soon in v1.5`, you can use `tag add` and `tag remove` to modify tags in a todo instead of only using `todo edit` to type all the tags in the todo to make modifications.
+* To add a tag, you can include all the existing tags in the todo as parameter together with the new tags that you wish to add.
+* To remove a tag, you can include all the existing tags in the todo excluding the tags that you wish to remove.
+
+**Coming soon in v1.5**, you can use `tag add` and `tag remove` to modify tags in a todo instead of only using `todo edit` to type all the tags in the todo to make modifications.
 
 </div>
 
@@ -652,8 +629,8 @@ Want to view a particular list of todos? You can use the `todo show` commands to
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Info:**<br>
-Todo header tells you the todos that are shown in the todo list. 
+**:information_source: Info**<br><br>
+Todo header tells you the todos that are currently shown in the todo list. 
 
 </div>
 
@@ -677,15 +654,15 @@ After:
 
 ### 7.4. Tag Management Commands
 
-Welcome to the Tag Management Commands section! In this section, you can learn how to manage your tags using SoConnect. A [tag](#tag) represents a category which you can place contacts and todos in, to better organise them. You can also use tags to [sort your contacts](#725-sorting-contacts--sort), [search your contacts](#724-searching-for-a-contact-search), or [filter your todos](#735-filtering-todos-shown--todo-show).
+Welcome to the Tag Management Commands section! In this section, you can learn how to manage your tags using SoConnect. A [tag](#tag) represents a category which you can place contacts and [todos](#todo) in, to better organise them. You can also use tags to [sort your contacts](#725-sorting-contacts--sort), [search your contacts](#724-searching-for-a-contact-search), or [filter your todos](#735-filtering-todos-shown--todo-show).
 
-A tag consists of a category name that can be a maximum of 10 characters.
+A tag consists of a category name that can be a **maximum of 10 characters**.
 
 <br>
 
 #### 7.4.1. Creating a tag: `tag create`
 
-You can create a new `TAG` and add it into the tag list.
+Want to create a new `TAG` to categorise your contacts and todos? You can create a new `TAG` using the `tag create` command as shown below. Take note that you can only create one `TAG` at a time!
 
 **Format:** `tag create t/TAG`
 
@@ -698,20 +675,18 @@ tag create t/cca
 
 ![Tag Create](images/TagCreate.png)
 
-Great! You have successfully learnt how to add your first `TAG` you have made. Now, you can start utilising the other tag features.
-
 <br>
 
 #### 7.4.2. Deleting a tag: `tag delete`
 
-You can delete a `TAG` from the tag list.
+If you no longer wish to keep a particular `TAG`, you can delete it easily using the `tag delete` command as shown below.
 
 **Format:** `tag delete t/TAG`
 
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Info**<br>
-When `TAG` is deleted, `TAG` is removed from all the contacts which previously had it.
+**:information_source: Info**<br><br>
+When a `TAG` is deleted, the `TAG` is removed from all the contacts and todos which previously had it.
 </div>
 
 **Expected Input in Command Box:**
@@ -729,22 +704,19 @@ After:
 
 ![Tag Delete After](images/TagDeleteAfter.png)
 
-Wonderful! You have successfully deleted a tag.
-
 <br>
 
 #### 7.4.3. Editing a tag: `tag edit`
 
-If you make a mistake or want to update your `TAG`, you can simply update it with this command.
+If you make a mistake or want to update your `TAG`, you can simply update it using the `tag edit` command as shown below. This command will change the existing tag name in all contacts and todos to the new tag name.
 
 **Format:** `tag edit t/TAG1 t/TAG2`
 
 <div markdown="block" class="alert alert-info">
 
 **:information_source: Info**<br>
-* The new Tag must not have the same name as any other existing tags.
-* `TAG1` represents the current name of the tag and `TAG2` represents the new name of the tag.
-* This command will replace `TAG1` in all contacts and todos to `TAG2`.
+* The new `TAG` must not have the same name as any other existing tags.
+* `TAG1` represents the current tag name and `TAG2` represents the new tag name.
 
 </div>
 
@@ -763,30 +735,21 @@ After:
 
 ![Tag Edit After](images/TagEditAfter.png)
 
-Fantastic! You have successfully learnt how to change tags.
-
 <br>
 
 #### 7.4.4. Adding a tag to a contact: `tag add`
 
-You can add a `TAG` from the tag list to a contact.
-* `Coming soon in v1.5`, we will upgrade `tag add` to add tags to todos.
-* Consider using [Adding a todo](#731-adding-a-todo-todo-add) or [Editing a todo](#732-editing-a-todo--todo-edit) to add tags to todos.
+You can add a `TAG` from the tag list to a contact using the `tag add` command as shown below. A contact can have any number of tags. Add as many as you want!
 
 **Format:** `tag add INDEX t/TAG`
 
-<div markdown="span" class="alert alert-success">
-
-**:bulb: Tip**<br>
-A contact can have any number of tags. Add as many as you want.
-</div>
-
 <div markdown="block" class="alert alert-info">
 
-**:information_source: Info**<br>
-The tag has to be created first before you can add it into a contact.
+**:information_source: Info**<br><br>
+* The tag has to be created first before you can add it into a contact.
+  Refer to [Creating a Tag](#741-creating-a-tag-tag-create) on how to create a tag.
+* **Coming soon in v1.5**, we will upgrade `tag add` to add tags to todos. Consider using [Adding a todo](#731-adding-a-todo-todo-add) or [Editing a todo](#732-editing-a-todo--todo-edit) to add tags to todos.
 
-Refer to [`Creating a Tag`](#741-creating-a-tag-tag-create) on how to create a tag.
 </div>
 
 **Example Input in Command Box:**
@@ -798,17 +761,21 @@ tag add 3 t/bestFriend
 
 ![Tag Add](images/TagAdd.png)
 
-Awesome! You have successfully learnt to add a tag to a contact.
-
 <br>
 
 #### 7.4.5. Removing a tag from a contact: `tag remove`
 
-You can remove a `TAG` from a contact.
-* `Coming soon in v1.5`, we will upgrade `tag remove` to remove tags from todos.
-* Consider using [Editing a todo](#732-editing-a-todo--todo-edit) to remove tags from todos.
+You can remove a `TAG` from a contact using the `tag remove` command as shown below. Removing a `TAG` from a contact will not affect other contacts with the same `TAG`.
 
 **Format:** `tag remove INDEX t/TAG`
+
+
+<div markdown="block" class="alert alert-info">
+
+**:information_source: Info**<br><br>
+**Coming soon in v1.5**, we will upgrade `tag add` to add tags to todos. Consider using [Adding a todo](#731-adding-a-todo-todo-add) or [Editing a todo](#732-editing-a-todo--todo-edit) to add tags to todos.
+
+</div>
 
 **Example Input in Command Box:**
 ```
@@ -819,8 +786,6 @@ tag remove 3 t/bestFriend
 
 ![Tag Remove](images/TagRemove.png)
 
-Nice! You have successfully removed a tag from a contact.
-
 <br>
 
 ### 7.5. Customisation Commands
@@ -829,8 +794,8 @@ Welcome to the Customisation Commands section! In this section, you can learn to
 
 <div markdown="block" class="alert alert-primary">
 
-**:memo: Note**<br>
-* You might be wondering why you can only customise contacts and not [todos](#todo). Fret not, we are working hard on making that possible for you! `Coming soon in v1.5`, we will introduce customisation commands for todos.
+**:memo: Note**<br><br>
+You might be wondering why you can only customise contacts and not [todos](#todo). Fret not, we are working hard on making that possible for you! **Coming soon in v1.5**, we will introduce customisation commands for todos.
 
 </div>
 
@@ -838,20 +803,22 @@ Welcome to the Customisation Commands section! In this section, you can learn to
 
 #### 7.5.1. Customising order of details: `customise order`
 
-You can customise the order of information shown for all contacts.
+You can customise the order of information shown for all contacts, except for their names, which will always be displayed on top.
 
 **Format:** `customise order [t/] [p/] [e/] [a/]`
 
-* You will always see the contact's name at the top of each card.
-* You can change the order of the following information: Tags, Phone Number, Email, Address.
-* Unspecified information will be ordered last according to the default order (Tags > Phone Number > Email > Address).
+<div markdown="block" class="alert alert-primary">
+
+**:memo: Note**<br><br>
+Unspecified information will be ordered last according to the default order (Tags > Phone Number > Email > Address).
+</div>
 
 **Example Input in Command Box:**
 ```
 customise order a/ e/ p/
 ```
 
-**Example Result**
+**Example Result:**
 
 ![Customise Order](images/CustomiseOrder.png)
 
@@ -859,13 +826,16 @@ customise order a/ e/ p/
 
 #### 7.5.2. Hiding contact details: `customise hide`
 
-You can hide certain information fields from all contacts.
+If there are certain pieces of information that are not useful to you, you can customise to hide them from all contacts. You can hide all information except for the names.
 
 **Format:** `customise hide [t/] [p/] [e/] [a/]`
 
-* You can hide the following information: Tags, Phone Number, Email, Address.
-* After you use this command, the information specified is hidden.
-* If the information that you specify is already hidden, it will stay hidden.
+
+<div markdown="block" class="alert alert-success">
+
+:bulb: **Tip**<br><br>
+If the information that you specify is already hidden, it will stay hidden.
+</div>
 
 **Example Input in Command Box:**
 ```
@@ -880,14 +850,21 @@ customise hide p/ t/
 
 #### 7.5.3. Showing contact details: `customise show`
 
-You can show certain information fields for all contacts.
+If there are certain pieces of information that you have previously hidden, but are now useful to you, you can customise to show them in all contacts.
 
-Format: `customise show [t/] [p/] [e/] [a/]`
+**Format:** `customise show [t/] [p/] [e/] [a/]`
 
-* You can show the following information: Tags, Phone Number, Email, Address.
-* After you use this command, the information specified is shown.
-* If the information that you specify is already shown, it will stay shown.
-* `Coming soon in v1.5`, we will include `customise show all`, a shortcut to show all information.
+<div markdown="block" class="alert alert-success">
+
+:bulb: **Tip**<br><br>
+If the information that you specify is already shown, it will stay shown.
+</div>
+
+<div markdown="block" class="alert alert-primary">
+
+**:memo: Note**<br><br>
+**Coming soon in v1.5**, we will include `customise show all`, a shortcut to show all information.
+</div>
 
 **Example Input in Command Box:**
 ```
@@ -903,15 +880,31 @@ customise show p/ t/
 --------------------------------------------------------------------------------------------------------------------
 
 ## 8. FAQ
+**Q**: How do I save my data?<br>
+**A**: You won't ever have to worry about losing your contacts or [todos](#todo). SoConnect automatically saves your data in the hard disk after any command that changes the data.
 
-**Q**: How do I transfer my data to another Computer?<br>
-**A**: Copy the home folder of your SoConnect app over to the other Computer. This folder should contain your `SoConnect.jar` file and your `data` folder.
+**Q**: Can I edit the data file directly?<br>
+**A**: Yes. If you are an advanced user, SoConnect allows you to freely edit its data files and directly update your data.
+* Your contact list and [tag](#tag) list are saved in a [JSON](#json) file `[JAR file location]/data/soconnect.json`.<br>
+* Your todo list is saved in a separate JSON file `[JAR file location]/data/todolist.json`.<br>
+
+<div markdown="span" class="alert alert-warning">
+
+**:warning: Warning**<br><br>
+If your changes to a data file renders it invalid, SoConnect will discard the data file and start with an empty data file at the next run.<br>
+* Familiarise yourself with the format of the data files before attempting any changes.<br>
+* Backup your data files in a separate folder before attempting any changes.
+
+</div>
+
+**Q**: How do I transfer my data to another computer?<br>
+**A**: Copy the [home folder](#51-how-to-install) of your SoConnect app over to the other computer. This folder should contain your `SoConnect.jar` file and your `data` folder.
 
 **Q**: What if I do not have the phone number/email address/address of a person whose contact I am trying to add?<br>
-**A**: When SoConnect has more users, we plan to gather feedback for which information should be made optional. In the meantime, you can go ahead and [add the contact](#721-adding-a-contact-add) by replacing the fields you do not have with dummy information. (e.g. Using `123` for the phone number, `xyz@email.com` for the email, or `xyz` for the address)
+**A**: When SoConnect has more users, we plan to gather feedback for which information should be made optional. In the meantime, you can go ahead and [add the contact](#721-adding-a-contact-add) by replacing the fields you do not have with dummy information. (e.g. using `123` for the phone number, `xyz@email.com` for the email, or `xyz` for the address)
 
 **Q**: Do you have any plans to make the app more customisable?<br>
-**A**: Of course! `Coming soon in v1.5`, we will introduce [customisation commands](#75-customisation-commands) for [todos](#todo). We won't stop there either, for we are always working on ways to make the app more customisable so that you can make your SoConnect app truly yours!
+**A**: Of course! **Coming soon in v1.5**, we will introduce [customisation commands](#75-customisation-commands) for [todos](#todo). We won't stop there either, for we are always working on ways to make the app more customisable so that you can make your SoConnect app truly yours!
 
 **Q**: Where can I find the data file with the tags I have created?<br>
 **A**: Your [tags](#tag) are stored together with your contacts in `soconnect.json`. The tag list stored affects both your contacts and your todos.
@@ -920,40 +913,40 @@ customise show p/ t/
 **A**: Tags have to be [created](#741-creating-a-tag-tag-create) before they can be added to a contact or todo. You may also want to double-check if you have spelled the tag correctly.
 
 **Q**: Why is the todo I have just added missing from the todo list?<br>
-**A**: Check if the todo list is currently showing a filtered list of todos. Refer to [`Filtering todos shown`](#735-filtering-todos-shown--todo-show) on how to filter the todo list.
+**A**: Check if the todo list is currently showing a filtered list of todos. Refer to [Filtering todos shown](#735-filtering-todos-shown--todo-show) on how to filter the todo list.
 
-**Q**: Why are the `tag add` and `tag remove` commands not working on todos?<br>
-**A**: You can use the `todo edit` command to modify the tags of a todo. Refer to [`Editing a todo`](#732-editing-a-todo--todo-edit) for more information.
+**Q**: Why are the `tag add` and `tag remove` commands not working on a todo?<br>
+**A**: You can use the `todo edit` command to modify the tags of a todo. Refer to [Editing a todo](#732-editing-a-todo--todo-edit) for more information.
 
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## 9. Command Summary
 
-| Action                                                                    | Format and Examples                                                                                                                                                                                                  |
-|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [**Help**](#711-viewing-help--help)                                       | `help`                                                                                                                                                                                                               |
-| [**Exit**](#712-exiting-the-program--exit)                                | `exit`                                                                                                                                                                                                               |
-| [**Add contact**](#721-adding-a-contact-add)                              | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS` <br> e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665`                                                                                |
-| [**Edit contact**](#722-editing-a-contact--edit)                          | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]`<br> e.g. `edit 2 n/James Lee e/jameslee@example.com`                                                                                                    |
-| [**List all contacts**](#723-listing-all-contacts--list)                  | `list`                                                                                                                                                                                                               |
-| [**Search contact**](#724-searching-for-a-contact-search)                 | `search [CONDITION] [n/NAME] [p/PHONE_NUMBER]…​`<br> e.g. `seach or n/John Doe t/cs2103t`                                                                                                                            |
-| [**Sort contacts**](#725-sorting-contacts--sort)                          | `sort [n/] [p/] [e/] [a/] [t/TAG]…​` <br> e.g. `sort t/!friend n/`                                                                                                                                                   |
-| [**Delete contact**](#726-deleting-a-contact--delete)                     | `delete INDEX`<br> e.g. `delete 3`                                                                                                                                                                                   |
-| [**Clear all contacts**](#727-clearing-all-contacts--clear)               | `clear`                                                                                                                                                                                                              |
-| [**Add Todo**](#731-adding-a-todo-todo-add)                               | `todo add d/DESCRIPTION date/DATE pr/PRIORITY [t/TAG]…​` <br> e.g. `todo add d/Revise priority/high`                                                                                                                 |
-| [**Edit Todo**](#732-editing-a-todo--todo-edit)                           | `todo edit INDEX [d/DESCRIPTION] [date/DATE] [pr/PRIORITY] [t/TAG]…​` <br> e.g. `todo edit t/CS2101`                                                                                                                 |
-| [**Delete Todo**](#733-deleting-a-todo--todo-delete)                      | `todo delete INDEX` <br> e.g. `todo delete 3`                                                                                                                                                                        |
-| [**Clear Todo**](#734-clearing-all-todos--todo-clear)                     | `todo clear`                                                                                                                                                                                                         |
-| [**Show Todo**](#735-filtering-todos-shown--todo-show)                    | `todo show`<br> `todo show today` <br> `todo show date/DATE` <br> `todo show date/DATE to DATE` <br> `todo show t/TAG` <br> `todo show pr/Priority` <br> e.g. `todo show`, `todo show pr/high`, `todo show t/CS2100` |
-| [**Create Tag**](#741-creating-a-tag-tag-create)                          | `tag create t/TAG` <br> e.g. `tag create t/friend`                                                                                                                                                                   |
-| [**Add Tag**](#744-adding-a-tag-to-a-contact-tag-add)                     | `tag add INDEX t/TAG` <br> e.g. `tag add 1 t/friend`                                                                                                                                                                 |
-| [**Edit Tag**](#743-editing-a-tag-tag-edit)                               | `tag edit t/TAG1 t/TAG2`  <br> e.g. `tag edit t/friend t/bestFriend`                                                                                                                                                 |
-| [**Remove Tag**](#745-removing-a-tag-from-a-contact-tag-remove)           | `tag remove INDEX t/TAG` <br> e.g. `tag remove 1 t/friend`                                                                                                                                                           |
-| [**Delete Tag**](#742-deleting-a-tag-tag-delete)                          | `tag delete t/TAG` <br> e.g. `tag delete t/friend`                                                                                                                                                                   |
-| [**Customise order**](#751-customising-order-of-details-customise-order)  | `customise order [t/] [p/] [e/] [a/]` <br> e.g. `customise order a/ p/`                                                                                                                                              |
-| [**Hide contact details**](#752-hiding-contact-details-customise-hide)    | `customise hide [t/] [p/] [e/] [a/]`  <br> e.g. `customise hide a/ e/ p/`                                                                                                                                            |
-| [**Show contact details**](#753-showing-contact-details-customise-show)   | `customise show [t/] [p/] [e/] [a/]` <br> e.g. `customise show a/`                                                                                                                                                   |
+| Action                                                                   | Format and Examples                                                                                                                                                                                                                          |
+|--------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [**Help**](#711-viewing-help--help)                                      | `help`                                                                                                                                                                                                                                       |
+| [**Exit**](#712-exiting-the-program--exit)                               | `exit`                                                                                                                                                                                                                                       |
+| [**Add contact**](#721-adding-a-contact-add)                             | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS` <br> e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665`                                                                                                        |
+| [**Edit contact**](#722-editing-a-contact--edit)                         | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS]`<br> e.g. `edit 2 n/James Lee e/jameslee@example.com`                                                                                                                            |
+| [**List all contacts**](#723-listing-all-contacts--list)                 | `list`                                                                                                                                                                                                                                       |
+| [**Search contact**](#724-searching-for-a-contact-search)                | `search [and] [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g. `seach and n/John Doe t/cs2103t` <br> <br> `search or [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​` <br> e.g. `seach or n/John Doe t/cs2103t` |
+| [**Sort contacts**](#725-sorting-contacts--sort)                         | `sort [n/] [p/] [e/] [a/] [t/TAG]…​` <br> e.g. `sort t/!friend n/`                                                                                                                                                                           |
+| [**Delete contact**](#726-deleting-a-contact--delete)                    | `delete INDEX`<br> e.g. `delete 3`                                                                                                                                                                                                           |
+| [**Clear all contacts**](#727-clearing-all-contacts--clear)              | `clear`                                                                                                                                                                                                                                      |
+| [**Add todo**](#731-adding-a-todo-todo-add)                              | `todo add d/DESCRIPTION date/DATE pr/PRIORITY [t/TAG]…​` <br> e.g. `todo add d/Revise date/07-11-2022 pr/high`                                                                                                                               |
+| [**Edit todo**](#732-editing-a-todo--todo-edit)                          | `todo edit INDEX [d/DESCRIPTION] [date/DATE] [pr/PRIORITY] [t/TAG]…​` <br> e.g. `todo edit 1 t/CS2101`                                                                                                                                       |
+| [**Delete todo**](#733-deleting-a-todo--todo-delete)                     | `todo delete INDEX` <br> e.g. `todo delete 3`                                                                                                                                                                                                |
+| [**Clear todo**](#734-clearing-all-todos--todo-clear)                    | `todo clear`                                                                                                                                                                                                                                 |
+| [**Show todo**](#735-filtering-todos-shown--todo-show)                   | `todo show`<br> `todo show today` <br> `todo show date/DATE` <br> `todo show date/DATE to DATE` <br> `todo show t/TAG` <br> `todo show pr/PRIORITY` <br> e.g. `todo show`, `todo show pr/high`, `todo show t/CS2100`                         |
+| [**Create tag**](#741-creating-a-tag-tag-create)                         | `tag create t/TAG` <br> e.g. `tag create t/friend`                                                                                                                                                                                           |
+| [**Delete tag**](#742-deleting-a-tag-tag-delete)                         | `tag delete t/TAG` <br> e.g. `tag delete t/friend`                                                                                                                                                                                           |
+| [**Edit tag**](#743-editing-a-tag-tag-edit)                              | `tag edit t/TAG1 t/TAG2`  <br> e.g. `tag edit t/friend t/bestFriend`                                                                                                                                                                         |
+| [**Add tag**](#744-adding-a-tag-to-a-contact-tag-add)                    | `tag add INDEX t/TAG` <br> e.g. `tag add 1 t/friend`                                                                                                                                                                                         |
+| [**Remove tag**](#745-removing-a-tag-from-a-contact-tag-remove)          | `tag remove INDEX t/TAG` <br> e.g. `tag remove 1 t/friend`                                                                                                                                                                                   |
+| [**Customise order**](#751-customising-order-of-details-customise-order) | `customise order [t/] [p/] [e/] [a/]` <br> e.g. `customise order a/ p/`                                                                                                                                                                      |
+| [**Hide contact details**](#752-hiding-contact-details-customise-hide)   | `customise hide [t/] [p/] [e/] [a/]`  <br> e.g. `customise hide a/ e/ p/`                                                                                                                                                                    |
+| [**Show contact details**](#753-showing-contact-details-customise-show)  | `customise show [t/] [p/] [e/] [a/]` <br> e.g. `customise show a/`                                                                                                                                                                           |
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -995,39 +988,15 @@ A link or reference to where you can find a more detailed explanation about a te
 
 <br>
 
-**<a id="javafx"></a>JavaFX**
-
-A Java library used to develop client applications.
-
-<br>
-
 **<a id="json"></a>JSON**
 
 JSON stands for JavaScript Object Notation. JSON is a lightweight format for storing and transporting data.
 
 <br>
 
-**<a id="kloc"></a>kLoC**
-
-Stands for thousands of lines of code.
-
-<br>
-
-**<a id="mainstream-os"></a>Mainstream OS**
-
-Windows, Linux, Unix, OS-X.
-
-<br>
-
 **<a id="nus"></a>NUS**
 
 National University of Singapore.
-
-<br>
-
-**<a id="contact"></a>Private Contact Detail**
-
-A contact detail that is not meant to be shared with others.
 
 <br>
 
@@ -1045,6 +1014,6 @@ A category which you can place contacts and todos in.
 
 **<a id="todo"></a>Todo**
 
-A task that the user needs to complete.
+A task that the user needs to be completed.
 
 <br>
