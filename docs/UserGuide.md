@@ -158,7 +158,7 @@ Contact list displays the contacts with their information in the contact card.
 
 #### 6.1.4. Todo List
 
-![Todo List With Label](images/TodoListWithLabel.png)
+![Todo List With Label](images/TodoListWithLabel1.png)
 
 Todo list displays the todos with their information in the todo card.
 
