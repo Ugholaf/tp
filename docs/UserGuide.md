@@ -892,7 +892,7 @@ customise show p/ t/
 **:warning: Warning**<br><br>
 If your changes to a data file renders it invalid, SoConnect will discard the data file and start with an empty data file at the next run.
 
-* Familiarise yourself with the format of the data files before attempting any changes.<br>
+* Familiarise yourself with the format of the data files before attempting any changes.
 * Backup your data files in a separate folder before attempting any changes.
 
 </div>
